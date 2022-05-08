@@ -7,7 +7,6 @@ module.exports = {
   username: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE,
-  minDelayValidation: 5000,
   define: {
     timestamps: true,
     underscored: true,
