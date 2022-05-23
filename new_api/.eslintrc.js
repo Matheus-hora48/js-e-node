@@ -14,5 +14,6 @@ module.exports = {
     "import/first": "off",
     "linebreak-style": "off",
     quotes: "off",
+    "no-param-reassing": "off",
   },
 };
