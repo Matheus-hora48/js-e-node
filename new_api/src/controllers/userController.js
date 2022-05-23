@@ -1,17 +1,14 @@
-import Aluno from "../models/aluno";
+import User from "../models/user";
 
-class HomeController {
-  async index(req, res) {
-    const novoAluno = await Aluno.create({
+class UserController {
+  async store(req, res) {
+    const novoUser = await User.create({
       nome: "Matheus",
-      sobrenome: "Hora",
       email: "teste@email.com",
-      idade: 20,
-      peso: 78,
-      altura: 1.7,
+      password: "123456",
     });
-    res.json(novoAluno);
+    res.json(novoUser);
   }
 }
 
-export default new HomeController();
+export default new UserController();
