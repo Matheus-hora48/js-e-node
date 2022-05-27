@@ -1,5 +1,10 @@
 import { Router } from "express";
+
 import fotoController from "../controllers/fotoController";
+
+
+
+
 
 const router = new Router();
 
