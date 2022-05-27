@@ -1,22 +1,14 @@
-import Aluno from '../models/Aluno';
-import Foto from '../models/Foto';
+import Aluno from "../models/aluno";
 
 class AlunoController {
   async index(req, res) {
-    const alunos = await Aluno.findAll({
-      attributes: ['id', 'nome', 'sobrenome', 'email', 'idade', 'peso', 'altura'],
-      order: [['id', 'DESC'], [Foto, 'id', 'DESC']],
-      include: {
-        model: Foto,
-        attributes: ['url', 'filename'],
-      },
-    });
-    res.json(alunos);
+    const aluno = await Aluno.findAll();
+    res.json(aluno);
   }
 
   async store(req, res) {
     try {
-      const aluno = await Aluno.create(req.body);
+      const { aluno } = await Aluno.create(req.body);
 
       return res.json(aluno);
     } catch (e) {
@@ -32,22 +24,15 @@ class AlunoController {
 
       if (!id) {
         return res.status(400).json({
-          errors: ['Faltando ID'],
+          errors: ["Faltando o id"],
         });
       }
 
-      const aluno = await Aluno.findByPk(id, {
-        attributes: ['id', 'nome', 'sobrenome', 'email', 'idade', 'peso', 'altura'],
-        order: [['id', 'DESC'], [Foto, 'id', 'DESC']],
-        include: {
-          model: Foto,
-          attributes: ['url', 'filename'],
-        },
-      });
+      const aluno = await Aluno.findByPk(id);
 
-      if (!aluno) {
+      if (!id) {
         return res.status(400).json({
-          errors: ['Aluno não existe'],
+          errors: ["Aluno não existe"],
         });
       }
 
@@ -65,15 +50,15 @@ class AlunoController {
 
       if (!id) {
         return res.status(400).json({
-          errors: ['Faltando ID'],
+          errors: ["Faltando o id"],
         });
       }
 
       const aluno = await Aluno.findByPk(id);
 
-      if (!aluno) {
+      if (!id) {
         return res.status(400).json({
-          errors: ['Aluno não existe'],
+          errors: ["Aluno não existe"],
         });
       }
 
@@ -94,19 +79,20 @@ class AlunoController {
 
       if (!id) {
         return res.status(400).json({
-          errors: ['Faltando ID'],
+          errors: ["Faltando o id"],
         });
       }
 
       const aluno = await Aluno.findByPk(id);
 
-      if (!aluno) {
+      if (!id) {
         return res.status(400).json({
-          errors: ['Aluno não existe'],
+          errors: ["Aluno não existe"],
         });
       }
 
-      const alunoAtualizado = await aluno.update(req.body);
+      const alunoAtualizado = aluno.update(req.body);
+
       return res.json(alunoAtualizado);
     } catch (e) {
       return res.status(400).json({
