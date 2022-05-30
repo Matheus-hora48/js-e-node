@@ -1,9 +1,9 @@
-import multer from "multer";
-import multerConfig from "../config/multerConfig";
+import multer from 'multer';
+import multerConfig from '../config/multerConfig';
 
-import Foto from "../models/foto";
+import Foto from '../models/foto';
 
-const upload = multer(multerConfig).single("foto");
+const upload = multer(multerConfig).single('foto');
 
 class FotoController {
   store(req, res) {
@@ -22,7 +22,7 @@ class FotoController {
         return res.json(foto);
       } catch (e) {
         return res.status(400).json({
-          errors: ["Aluno não existe"],
+          errors: ['Aluno não existe'],
         });
       }
     });
