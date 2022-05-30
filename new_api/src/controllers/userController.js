@@ -7,9 +7,7 @@ class UserController {
       const { id, nome, email } = novoUser;
       return res.json({ id, nome, email });
     } catch (e) {
-      return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
-      });
+      return res.status(400).json(null);
     }
   }
 
@@ -26,7 +24,7 @@ class UserController {
   // Show
   async show(req, res) {
     try {
-      const user = await User.findByPK(req.params.id);
+      const users = await User.findByPK(req.params.id);
       return res.json(users);
     } catch (e) {
       return res.json(null);
@@ -82,9 +80,7 @@ class UserController {
 
       return res.json(user);
     } catch (e) {
-      return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
-      });
+      return res.status(400).json(null);
     }
   }
 }
