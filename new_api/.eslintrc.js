@@ -15,5 +15,6 @@ module.exports = {
     "linebreak-style": "off",
     quotes: "off",
     "no-param-reassing": "off",
+    camelcase: "off",
   },
 };

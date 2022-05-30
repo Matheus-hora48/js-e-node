@@ -7,7 +7,9 @@ class UserController {
       const { id, nome, email } = novoUser;
       return res.json({ id, nome, email });
     } catch (e) {
-      return res.status(400).json(null);
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
     }
   }
 
@@ -80,7 +82,9 @@ class UserController {
 
       return res.json(user);
     } catch (e) {
-      return res.status(400).json(null);
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
     }
   }
 }
