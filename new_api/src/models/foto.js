@@ -37,8 +37,4 @@ export default class Foto extends Model {
     );
     return this;
   }
-
-  static associate(models) {
-    this.belongsTo(models.Aluno, { foreignKey: "aluno_id" });
-  }
 }
