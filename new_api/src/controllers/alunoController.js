@@ -75,9 +75,7 @@ class AlunoController {
 
       return res.json(aluno);
     } catch (e) {
-      return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
-      });
+      return res.status(400).json("erro");
     }
   }
 
@@ -104,9 +102,7 @@ class AlunoController {
         apagado: true,
       });
     } catch (e) {
-      return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
-      });
+      return res.status(400).json("erro");
     }
   }
 
@@ -131,9 +127,7 @@ class AlunoController {
       const alunoAtualizado = await aluno.update(req.body);
       return res.json(alunoAtualizado);
     } catch (e) {
-      return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
-      });
+      return res.status(400).json("erro");
     }
   }
 }
