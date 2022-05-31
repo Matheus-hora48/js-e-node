@@ -10,7 +10,7 @@ export default class Foto extends Model {
           defaultValue: "",
           validate: {
             notEmpty: {
-              msg: "Campo não pode ficar vazio",
+              msg: "Campo não pode ficar vazio.",
             },
           },
         },
@@ -19,12 +19,12 @@ export default class Foto extends Model {
           defaultValue: "",
           validate: {
             notEmpty: {
-              msg: "Campo não pode ficar vazio",
+              msg: "Campo não pode ficar vazio.",
             },
           },
         },
         url: {
-          type: sequelize.VIRTUAL,
+          type: Sequelize.VIRTUAL,
           get() {
             return `${appConfig.url}/images/${this.getDataValue("filename")}`;
           },
@@ -36,5 +36,9 @@ export default class Foto extends Model {
       }
     );
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Aluno, { foreignKey: "aluno_id" });
   }
 }
