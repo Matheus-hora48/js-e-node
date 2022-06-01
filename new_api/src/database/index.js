@@ -4,7 +4,7 @@ import Aluno from "../models/aluno";
 import User from "../models/user";
 import Foto from "../models/foto";
 
-const models = [Aluno, User];
+const models = [Aluno, User, Foto];
 
 const connection = new Sequelize(databaseConfig);
 
