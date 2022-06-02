@@ -5,7 +5,6 @@ class TokenController {
   async store(req, res) {
     const { email = "", password = "" } = req.body;
 
-    console.log(email, password);
     if (!email || !password) {
       return res.status(401).json({
         errors: ["Credenciais inválidas"],
